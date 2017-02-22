@@ -10,15 +10,16 @@
 .calculator-container {
     position: relative;
     border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
     margin-left: auto;
     margin-right: auto;
-    max-width: 500px;
-    min-width: 400px;
-    height: 800px;
+    width: 300px;
+    height: auto;
     box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
     -moz-box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
     -webkit-box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
-    /*margin-top: 10vw;*/
+    margin-top: 5vw;
     background-color: #3973ac;
 }
 
@@ -45,4 +46,107 @@
 .screen-container p {
     padding-right: 10px;
     font-size: 200%;
+}
+
+.calc-footer {
+    margin-top: 40px;
+}
+
+.button-panel {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.numeric-button,
+.clear-button {
+    width: 100%;
+    border-radius: 10%;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    border: none;
+    height: 40px;
+    font-size: 70%;
+    font-weight: bold;
+}
+
+.numeric-button {
+    background-color: #f2f2f2;
+    box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #204060;
+    -moz-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #204060;
+    -webkit-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #204060;
+}
+
+.clear-button {
+    background-color: #a72d45;
+    color: #ffffff;
+    box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #da7287;
+    -moz-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #da7287;
+    -webkit-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #da7287;
+}
+
+.button-group {
+    margin-top: 15px;
+    margin-right: 16.6px;
+    display: inline-block;
+    float: left;
+}
+
+.button-panel .button-group:last-of-type {
+    margin-right: 0;
+}
+
+.double-column-button {
+    height: 95px;
+}
+
+.span1 {
+    display: inline-block;
+    width: 50px;
+    float: left;
+}
+
+.span2 {
+    display: inline-block;
+    width: 116px;
+    float: left;
+
+}
+
+.button-row {
+    display: block;
+    height: 40px;
+    margin-top: 15px;
+}
+
+.button-row:first-of-type {
+    margin-top: 0;
+}
+
+.button-row .span1 {
+    margin-right: 16.6px;
+}
+
+.button-row .span1:last-of-type {
+    margin-right: 0;
+}
+
+.group-button-row {
+    height: 40px;
+    margin-top: 15px;
+}
+
+.group-button-row:first-of-type {
+    margin-top: 0;
+}
+
+.group-button-row .span1,
+.group-button-row .span2 {
+    margin-right: 16.6px;
+}
+
+.group-button-row .span1:last-of-type {
+    margin-right: 0;
 }
