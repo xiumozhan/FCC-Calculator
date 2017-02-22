@@ -20,7 +20,7 @@
     -ms-box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
     -moz-box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
     -webkit-box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
-    box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;    
+    box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
     margin-top: 5vw;
     background-color: #3973ac;
 }
@@ -66,10 +66,10 @@
 .numeric-button,
 .clear-button {
     width: 100%;
-    border-radius: 10%;
     -webkit-border-radius: 10%;
     -moz-border-radius: 10%;
     -ms-border-radius: 10%;
+    border-radius: 10%;    
     border: none;
     height: 40px;
     font-size: 70%;
