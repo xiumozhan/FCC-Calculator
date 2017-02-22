@@ -12,11 +12,13 @@
     border-radius: 5%;
     -webkit-border-radius: 5%;
     -moz-border-radius: 5%;
+    -ms-border-radius: 5%;
     margin-left: auto;
     margin-right: auto;
     width: 300px;
     height: auto;
     box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
+    -ms-box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
     -moz-box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
     -webkit-box-shadow:  7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #204060;
     margin-top: 5vw;
@@ -39,6 +41,7 @@
     margin-right: 10px;
     background-color: #c3c2ab;
     box-shadow: inset 0 0 10px #003366;
+    -ms-box-shadow: inset 0 0 10px #003366;
     -moz-box-shadow: inset 0 0 10px #003366;
     -webkit-box-shadow: inset 0 0 10px #003366;
 }
@@ -66,6 +69,7 @@
     border-radius: 10%;
     -webkit-border-radius: 10%;
     -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
     border: none;
     height: 40px;
     font-size: 70%;
@@ -76,12 +80,16 @@
 
 .numeric-button:active,
 .clear-button:active {
-  transform: translateY(4px);
+    transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    -moz-transform: translateY(4px);
+    -ms-transform: translateY(4px);
 }
 
 .numeric-button {
     background-color: #f2f2f2;
     box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #204060;
+    -ms-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #204060;
     -moz-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #204060;
     -webkit-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #204060;
 }
@@ -90,6 +98,7 @@
     background-color: #a72d45;
     color: #ffffff;
     box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #da7287;
+    -ms-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #da7287;
     -moz-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #da7287;
     -webkit-box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #da7287;
 }
