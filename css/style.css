@@ -72,6 +72,13 @@
     font-weight: bold;
 }
 
+/*.numeric-button:hover {background-color: #3e8e41}*/
+
+.numeric-button:active,
+.clear-button:active {
+  transform: translateY(4px);
+}
+
 .numeric-button {
     background-color: #f2f2f2;
     box-shadow:  1px 2px 5px 1px rgba(0, 0, 0, 0.68), inset -1px -2px 5px 0.1px #204060;
