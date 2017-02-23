@@ -3,7 +3,7 @@
 calculatorApp.controller('calculatorController', ['$scope', function($scope) {
     var result = 0;
     $scope.inputSequence = '';
-    var inputSequence = '';
+    // var inputSequence = '';
     $scope.selectedInput = '';
     $scope.current = '0';
     var op = /[*+\-/]/;
@@ -14,7 +14,7 @@ calculatorApp.controller('calculatorController', ['$scope', function($scope) {
         $scope.inputSequence = '';
         $scope.selectedInput = '';
         $scope.current = '0';
-        inputSequence = '';
+        // inputSequence = '';
     };
 
     $scope.clearLast = function() {
@@ -25,7 +25,7 @@ calculatorApp.controller('calculatorController', ['$scope', function($scope) {
     $scope.getValue = function(element) {
         $scope.selectedInput = element.currentTarget.value;
         $scope.inputSequence += $scope.selectedInput;
-        inputSequence += $scope.selectedInput;
+        // inputSequence += $scope.selectedInput;
         // console.log($scope.inputSequence);
     };
 
@@ -63,26 +63,26 @@ calculatorApp.controller('calculatorController', ['$scope', function($scope) {
         var startWithOperator = /^[*+\-/.]+/;
         var endWithOperator = /[*+\-/.]$/;
         var divideByZero = /(\/0)/g;
-        var hasConsecutiveOperators = consecutiveOperators.test(inputSequence);
-        var isStartWithOperator = startWithOperator.test(inputSequence);
-        var isEndWithOperators = endWithOperator.test(inputSequence);
-        var isDivideByZero = divideByZero.test(inputSequence);
-        var hasConsecutiveDecimalPoints = consecutiveDecimalPoints.test(inputSequence);
+        var hasConsecutiveOperators = consecutiveOperators.test($scope.inputSequence);
+        var isStartWithOperator = startWithOperator.test($scope.inputSequence);
+        var isEndWithOperators = endWithOperator.test($scope.inputSequence);
+        var isDivideByZero = divideByZero.test($scope.inputSequence);
+        var hasConsecutiveDecimalPoints = consecutiveDecimalPoints.test($scope.inputSequence);
         if (hasConsecutiveOperators || isStartWithOperator || isEndWithOperators || hasConsecutiveDecimalPoints) {
             result = 'Syntax Error';
             $scope.current = result;
             result = 0;
-            inputSequence = '';
+            $scope.inputSequence = '';
             // $scope.selectedInput = '';
         } else if (isDivideByZero) {
             result = 'Math Error';
             $scope.current = result;
             result = 0;
-            inputSequence = '';
+            $scope.inputSequence = '';
             // $scope.selectedInput = '';
         } else {
-            var inputArray = inputSequence.split(op);
-            var operators = inputSequence.match(ops);
+            var inputArray = $scope.inputSequence.split(op);
+            var operators = $scope.inputSequence.match(ops);
             var hasDecimalPoint = /[\.]/;
             console.log(inputArray);
             console.log(operators);
