@@ -5,7 +5,7 @@ calculatorApp.controller('calculatorController', ['$scope', function($scope) {
     $scope.inputSequence = '';
     var inputSequence = '';
     $scope.selectedInput = '';
-    $scope.current = 0;
+    $scope.current = '0';
     var op = /[*+\-/]/;
     var ops = /[*+\-/]/g;
 
@@ -13,13 +13,13 @@ calculatorApp.controller('calculatorController', ['$scope', function($scope) {
         result = 0;
         $scope.inputSequence = '';
         $scope.selectedInput = '';
-        $scope.current = 0;
+        $scope.current = '0';
         inputSequence = '';
     };
 
     $scope.clearLast = function() {
-        $scope.inputSequence = $scope.inputSequence.slice(0, -1);
-        inputSequence = inputSequence.slice(0, -1);
+        // $scope.inputSequence = $scope.inputSequence.slice(0, -1);
+        // inputSequence = inputSequence.slice(0, -1);
     };
 
     $scope.getValue = function(element) {
@@ -30,15 +30,30 @@ calculatorApp.controller('calculatorController', ['$scope', function($scope) {
     };
 
     $scope.$watch('inputSequence', function(newInput, oldInput) {
-        if(!op.test($scope.selectedInput)) {
-            if($scope.current === '0' || $scope.current === 'Syntax Error' || $scope.current === 'Math Error' || op.test(oldInput.slice(-1))) {
-                $scope.current = $scope.selectedInput;
+        if(newInput.length > oldInput.length) {
+            if (!op.test($scope.selectedInput)) {
+                if($scope.current === '0' || $scope.current === 'Syntax Error' || $scope.current === 'Math Error' || op.test(oldInput.slice(-1))) {
+                    $scope.current = $scope.selectedInput;
+                } else {
+                    $scope.current += $scope.selectedInput;
+                }
             } else {
-                $scope.current += $scope.selectedInput;
+                $scope.current = $scope.selectedInput;
             }
-        } else {
-            $scope.current = $scope.selectedInput;
         }
+        // else if (newInput.length < oldInput.length) {
+        //     if(!op.test($scope.current)) {
+        //         $scope.current = $scope.current.slice(0, -1);
+        //         if($scope.current.length === 0) {
+        //             if()
+        //             $scope.current = '0';
+        //         }
+        //     } else {
+        //         if(op.test(newInput.slice(-1))) {
+        //             $scope.current = newInput.slice(-1);
+        //         }
+        //     }
+        // }
         console.log($scope.current);
     });
 
@@ -53,7 +68,7 @@ calculatorApp.controller('calculatorController', ['$scope', function($scope) {
         var isEndWithOperators = endWithOperator.test(inputSequence);
         var isDivideByZero = divideByZero.test(inputSequence);
         var hasConsecutiveDecimalPoints = consecutiveDecimalPoints.test(inputSequence);
-        if(hasConsecutiveOperators || isStartWithOperator || isEndWithOperators || hasConsecutiveDecimalPoints) {
+        if (hasConsecutiveOperators || isStartWithOperator || isEndWithOperators || hasConsecutiveDecimalPoints) {
             result = 'Syntax Error';
             $scope.current = result;
             result = 0;
@@ -68,9 +83,27 @@ calculatorApp.controller('calculatorController', ['$scope', function($scope) {
         } else {
             var inputArray = inputSequence.split(op);
             var operators = inputSequence.match(ops);
+            var hasDecimalPoint = /[\.]/;
             console.log(inputArray);
             console.log(operators);
+            result = hasDecimalPoint.test(inputArray[0]) === true? parseFloat(inputArray[0]): parseInt(inputArray[0]);
+            if(operators !== null) {
+                for(var i = 0 ; i < operators.length; i++) {
+                    var rightValue = hasDecimalPoint.test(inputArray[i + 1]) === true? parseFloat(inputArray[i + 1]): parseInt(inputArray[i + 1]);
+                    if(operators[i] === '+') {
+                        result += rightValue;
+                    } else if (operators[i] === '-') {
+                        result -= rightValue;
+                    } else if (operators[i] === '*') {
+                        result *= rightValue;
+                    } else {
+                        result /= rightValue;
+                    }
+                    result = Number(result.toFixed(4));
+                }
+            }
 
+            $scope.current = result;
         }
     };
 }]);
